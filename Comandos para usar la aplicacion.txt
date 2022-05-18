@@ -1,0 +1,9 @@
+npm start -->  Inicia nuestra aplicacion
+ctrl + j -->   Inicializa la teminal en VisualStudioCode
+
+
+
+//STACK
+nodejs
+React
+BootStrap
