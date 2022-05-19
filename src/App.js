@@ -1,53 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table, Button, Container, Modal, ModalBody, MaodalHeader, FormGroup, ModalFooter} from 'reactstrap';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter,
+  Input, Label} from 'reactstrap';
+import RegistrarServicio from './FrontEnd/RegistrarNuevoServicio';
+import Mostrar from './FrontEnd/MostrarServicios';
+import Bienvenida from './FrontEnd/Bienvenida';
 
-const data = [
-  { id: 1, personaje: "Naruto", anime: "Naruto"},
-  { id: 2, personaje: "Goku", anime: "Dragon Ball"},
-  { id: 3, personaje: "Kenshin Himura", anime: "Rurouni Kenshin"},
-  { id: 4, personaje: "Monkey D. Luffy", anime: "One Piece"},
-  { id: 5, personaje: "Edward Elric", anime: "Fullmetal Alchemist: BrotherHood"},
-  { id: 6, personaje: "Seto Kaiba", anime: "Yu-Gi-oh!"},
-];
-
-class App extends React.Component {
-state = {
-  data: data
-}
-  render(){
-    return(
-      <>
-      <Container>
-        <br />
-        <Button color = "success" > Insertar Nuevo Personaje </Button>
-        <br /> <br />
-        
-        <Table>
-          <thead><tr><th>Id</th>
-          <th>Personaje</th>
-          <th>Anime</th>
-          <th>Acciones</th></tr></thead>
-          <tbody>
-            {this.state.data.map((elemento)=>(
-              <tr>
-                <td>{elemento.id}</td>
-                <td>{elemento.personaje}</td>
-                <td>{elemento.anime}</td>
-                <td><Button color = "primary"> Editar</Button>{"  "}
-                    <Button color = "danger"> Eliminar</Button>
-                </td>
-              </tr>
-            ))}
-
-          </tbody>
-        </Table>
-      </Container>
-      </>
-    );
-  }
+function App(){
+  return(
+    // HACER QUE CAMBIE DE RUTA PRESIONANDO UN BOTON, INICIA EN LA PANTALLA BIENVENIDA 
+    //<Button color = "success" onClick = {<Mostrar/>}>Comenzar</Button>
+    // LUEGO CON EL BOTON "REVISAR SERVICIOS" SE VA A LA PANTALLA DE MOSTRAR  
+    // DEPUES EN MOSTRAR CON EL BOTON AGREGAR SERVICIO SE VA A LA PANTALLA DE AGREGAR SERVICIO
+    
+    <Router>
+      <Routes>
+        <Route path = "/" element = { <Bienvenida/> }/> 
+        <Route path = "/registrar-servicio" element = { <RegistrarServicio/> }/>       
+        <Route path = "/mostrar-servicios" element = { <Mostrar/> }/>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
+
