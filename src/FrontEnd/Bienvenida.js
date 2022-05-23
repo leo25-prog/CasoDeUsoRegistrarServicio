@@ -1,36 +1,30 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table, Button, Container, Modal, ModalBody, MaodalHeader, FormGroup, ModalFooter} from 'reactstrap';
-import logoServiNet from '../Imagenes/LogoServiNet.png';
+import { FormGroup } from 'reactstrap';
 
-export default class Bienvenida extends React.Component{
-    state ={
-        click: false,
-    }
+const estiloDeVentana = {
+    position: "absolute",
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+}
 
-    mostrarServicios=()=>{
-        this.setState({click: !this.state.click});
-    }
-    
+const centrar = {
+    position: "absolute",
+    top: '120%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+}
+
+export default class Bienvenida extends React.Component{    
     render() {
-        const modalStyles = {
-            position: "absolute",
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-        }
         return(
             <>
-            <div><img src = { <logoServiNet/> }/></div>
-            <h1>Servicio social ITSUR</h1>
-
-            <div className = "principal">
-                <div className = "secundario">
-            <Button color = "success" onClick = {this.mostrarServicios}> Revisar Servicios</Button>
-            </div></div>
-            
-            
-
+            <FormGroup style={estiloDeVentana}>
+                <br/>
+                <h1>Bienvenido al apartado de servicio</h1>
+                <h1 style={centrar}>social "ITSUR"</h1>
+            </FormGroup>
             </>
         );
     }

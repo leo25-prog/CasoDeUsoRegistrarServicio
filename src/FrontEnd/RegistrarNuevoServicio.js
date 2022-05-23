@@ -1,56 +1,68 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter,
-        Input, Label} from 'reactstrap';
+import {Button, FormGroup, Input, Label} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
-export default class RegistrarServicio extends React.Component{
-    state ={
-        abierto: false,
-    }
+const estiloDeVentana = {
+    position: "absolute",
+    top: '65%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+}
 
-    abrirModal=()=>{
-        this.setState({abierto: !this.state.abierto});
-    }
+var argumento;
 
-    render(){
-
-        const modalStyles = {
-            position: "absolute",
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-        }
+export default function RegistrarServicio (){
         return (
             <>
-            <div className = "principal">
-                <div className = "secundario">
-            <Button color = "success" onClick = {this.abrirModal}>Mostrar Modal</Button>
-            
-            </div></div>
-            
-            <Modal isOpen = {this.state.abierto}  style = {modalStyles}>
-                <ModalHeader>
-                    Inicia sesión
-                </ModalHeader>
-            
-                <ModalBody>
-                    <FormGroup>
-                        <Label for = "usuario">Usuario</Label>
-                        <Input type = "text" id = "usuario"/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for = "usuario">Usuario</Label>
-                        <Input type = "text" id = "password"/>
-                    </FormGroup>
-                </ModalBody>
-            
-                <ModalFooter>
-                    <Button color = "primary">Iniciar Sesión</Button>
-                    <Button color = "secundary"  onClick = {this.abrirModal}>Cerrar</Button>
-                </ModalFooter>
-            </Modal>
+            <FormGroup>
+                <h1>Registrar Nuevo Servicio</h1>
+                <br/>
 
+                <FormGroup>
+                    <Label>ID:</Label> 
+                    <Input type = "text" id = "usuario"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Nombre del servicio:</Label> 
+                    <Input type = "text" id = "usuario"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Dependencia oficial:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Titular de la dependencia:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Puesto del titular en la dependencia:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Télefono:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Nombre del programa:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Cupos disponibles en el servicio:</Label>
+                    <Input type = "text" id = "password"/>
+                </FormGroup>
+            
+                <Button color = "primary"> Guardar registro </Button>
+                {" "}
+                <Link to = "/mostrar-servicios" className="btn btn-danger"> Regresar </Link>
+            </FormGroup>
             </>
         )
-    }
 }
