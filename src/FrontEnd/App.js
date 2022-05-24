@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import RegistrarServicios from './FrontEnd/RegistrarNuevoServicio';
-import MostrarServicios from './FrontEnd/MostrarServicios';
-import Bienvenida from './FrontEnd/Bienvenida';
-import Menu from './FrontEnd/Menu';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import RegistrarServicios from './Componentes/RegistrarNuevoServicio';
+import MostrarServicios from './Componentes/MostrarServicios';
+import Bienvenida from './Componentes/Bienvenida';
+import Menu from './Componentes/Menu';
 
-export default function App(){
+
+function App(){
   return(
     <Router>
       <Routes>
@@ -19,5 +20,4 @@ export default function App(){
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+export default App;
