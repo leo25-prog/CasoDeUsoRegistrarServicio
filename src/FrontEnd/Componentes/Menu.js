@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
-import {FormGroup, Table} from 'reactstrap';
+import {Table} from 'reactstrap';
 import Logo from './Imagenes/LogoServiNet.png'
 
-class menu extends React.Component {  
+class Menu extends React.Component {  
     constructor(props) {
         super(props);
         this.state = {  }
@@ -31,4 +31,4 @@ class menu extends React.Component {
     }
 }
 
-export default menu;
+export default Menu;
