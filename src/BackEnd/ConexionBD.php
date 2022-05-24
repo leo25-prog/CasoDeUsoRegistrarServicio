@@ -33,19 +33,19 @@ if (isset($_GET["borrar"])){
 if(isset($_GET["insertar"])){
     $data = json_decode(file_get_contents("php://input"));
     $nomServicio = $data -> nomServicio;
-    $Dependencia = $data -> Dependencia;
-    $Titular     = $data -> Titular;
-    $PuestoTitular = $data -> PuestoTitular;
-    $Telefono      = $data -> Telefono;
-    $NomPrograma   = $data -> NomPrograma;
-    $Cupos         = $data -> Cupos;
+    $dependencia = $data -> dependencia;
+    $titular     = $data -> titular;
+    $puestoTitular = $data -> puestoTitular;
+    $telefono      = $data -> telefono;
+    $nomPrograma   = $data -> nomPrograma;
+    $cupos         = $data -> cupos;
     
-    if(($nomServicio != "") && ($Dependencia != "") && ($Titular != "") &&
-       ($PuestoTitular != "") && ($Telefono != "") && ($NomPrograma != "") && ($Cupos != "")){
+    if(($nomServicio != "") && ($dependencia != "") && ($titular != "") &&
+       ($puestoTitular != "") && ($telefono != "") && ($nomPrograma != "") && ($cupos != "")){
             
     $sqlServicios = mysqli_query($conexionBD,"INSERT INTO servicios(nomServicio, Dependencia, Titular, 
-    PuestoTitular, Telefono, NomPrograma, Cupos) VALUES('$nomServicio','$Dependencia', '$Titular', '$PuestoTitular',
-    '$Telefono', '$NomPrograma', '$Cupos') ");
+    PuestoTitular, Telefono, NomPrograma, Cupos) VALUES('$nomServicio','$dependencia', '$titular', '$puestoTitular',
+    '$telefono', '$nomPrograma', '$cupos') ");
     echo json_encode(["success"=>1]);
         }
     exit();
@@ -56,7 +56,7 @@ if(isset($_GET["actualizar"])){
     $data = json_decode(file_get_contents("php://input"));
 
     $id=(isset($data->id))?$data->id:$_GET["actualizar"];
-    $nomServicio = $data -> nomServicio;
+    $NomServicio = $data -> NomServicio;
     $Dependencia = $data -> Dependencia;
     $Titular     = $data -> Titular;
     $PuestoTitular = $data -> PuestoTitular;
@@ -65,7 +65,7 @@ if(isset($_GET["actualizar"])){
     $Cupos         = $data -> Cupos;
     
     $sqlServicios = mysqli_query($conexionBD,"UPDATE servicios 
-    SET nomServicio='$nomServicio', dependencia='$Dependencia', titular = '$Titular', puestoTitular = '$PuestoTitular',
+    SET nomServicio='$NomServicio', dependencia='$Dependencia', titular = '$Titular', puestoTitular = '$PuestoTitular',
         telefono = '$Telefono', nomPrograma = '$NomPrograma', cupos = '$Cupos'
     WHERE id='$id'");
     echo json_encode(["success"=>1]);
